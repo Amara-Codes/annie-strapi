@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
+    description: '';
     displayName: 'Category';
     pluralName: 'categories';
     singularName: 'category';
@@ -385,6 +386,10 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
     doctors: Schema.Attribute.Relation<'manyToMany', 'api::doctor.doctor'>;
+    icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
